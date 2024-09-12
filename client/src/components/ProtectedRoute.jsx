@@ -15,6 +15,8 @@ function ProtectedRoute({ children }) {
 
       // If user is authenticated and tries to go to login or signup, redirect to home page immediately
       if (location.pathname === "/login" || location.pathname === "/signup") {
+        console.log(asd);
+
         navigate("/", { replace: true });
       }
     } else {

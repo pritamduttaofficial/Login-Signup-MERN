@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function Signup() {
@@ -56,6 +56,15 @@ function Signup() {
       console.error("Failed To Login", error);
     }
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    // If the user is already authenticated, redirect to home
+    if (token) {
+      navigate("/", { replace: true });
+    }
+  }, [navigate]);
 
   return (
     <div>
